@@ -15,6 +15,13 @@
 
 // We will store each piece of information in a dedicated variable for later use.
 
+const amount = process.argv[2];
+const initialCurrency = process.argv[3];
+const targetCurrency = process.argv[4];
+
+console.log(amount);
+console.log(initialCurrency);
+console.log(targetCurrency);
 
 
 // --------------------------------------------------
