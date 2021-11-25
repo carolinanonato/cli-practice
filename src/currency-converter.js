@@ -31,7 +31,18 @@ console.log(targetCurrency);
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
-
+if (amount === undefined | amount < 0){
+    console.error(`Woops, the amount must be a number greater than 0. Recieved, ${amount}`)
+    process.exit();
+}
+if (initialCurrency === undefined ){
+    console.error(`Woops, you must provide a value for the inicial currency. Recieved, ${initialCurrency}`)
+    process.exit();
+}
+if (targetCurrency === undefined | targetCurrency < 0){
+    console.error(`Woops, you must provide a value for the target currency. Recieved, ${targetCurrency}`)
+    process.exit();
+}
 
 
 // --------------------------------------------------
