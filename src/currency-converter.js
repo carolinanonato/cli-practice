@@ -57,7 +57,8 @@ if (targetCurrency === undefined | targetCurrency < 0){
 // The conversion rates do not have to be accurate, athough this resource contains
 // up-to-date rate information: https://www.xe.com/
 
-
+let USD = 1;
+let CAD = 0.9;
 
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
@@ -68,7 +69,19 @@ if (targetCurrency === undefined | targetCurrency < 0){
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
 
+const supportedCurrencies = [
+    'USD',
+    'CAD',
+];
 
+if (supportedCurrencies.includes(initialCurrency) === false) {
+    console.error (`Woops, the initial currency is unsuported. The supported currencies are ${supportedCurrencies}`);
+    process.exit();
+    }
+
+if (supportedCurrencies.includes(targetCurrency) === false) {
+        console.error (`Woops, the initial currency is unsuported. The supported currencies are ${supportedCurrencies}`);
+        process.exit();
 
 // --------------------------------------------------
 // Step 5: Perform conversion
