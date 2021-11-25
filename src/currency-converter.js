@@ -19,9 +19,6 @@ const amount = process.argv[2];
 const initialCurrency = process.argv[3];
 const targetCurrency = process.argv[4];
 
-console.log(amount);
-console.log(initialCurrency);
-console.log(targetCurrency);
 
 
 // --------------------------------------------------
@@ -75,14 +72,14 @@ const supportedCurrencies = [
 ];
 
 if (supportedCurrencies.includes(initialCurrency) === false) {
-    console.error (`Woops, the initial currency is unsuported. The supported currencies are ${supportedCurrencies}`);
+    console.error(`Woops, the initial currency is unsuported. The supported currencies are ${supportedCurrencies}`);
     process.exit();
     }
 
 if (supportedCurrencies.includes(targetCurrency) === false) {
         console.error (`Woops, the initial currency is unsuported. The supported currencies are ${supportedCurrencies}`);
         process.exit();
-
+}
 // --------------------------------------------------
 // Step 5: Perform conversion
 // --------------------------------------------------
@@ -90,9 +87,13 @@ if (supportedCurrencies.includes(targetCurrency) === false) {
 // information, and that a rate exists for each of the currencies.
 
 // Now we will compute the rate, apply it to the amount, and capture the result.
-
-
-
+let convertedAmount;
+if (initialCurrency === 'USD' && targetCurrency === 'CAD') {
+    convertedAmount = amount / CAD;
+} else if (initialCurrency === 'CAD' && targetCurrency === 'USD') {
+        convertedAmount = amount * CAD;
+    
+}
 // --------------------------------------------------
 // Step 6: Display results
 // --------------------------------------------------
@@ -100,3 +101,6 @@ if (supportedCurrencies.includes(targetCurrency) === false) {
 
 // This message should also include the original amount and currency information
 // supplied by the user.
+
+console.log ( `You submitted the following amount: ${initialCurrency}${amount}.
+The converted amount is ${targetCurrency}${convertedAmount}.`)
